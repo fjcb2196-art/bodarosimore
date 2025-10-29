@@ -70,7 +70,7 @@ function handleWelcomeTransition() {
 }
 
 // =========================================================
-// 📝 Función 3: Lógica del Formulario RSVP (Actualizada para WhatsApp)
+// 📝 Función 3: Lógica del Formulario RSVP (Versión Final Limpia)
 // =========================================================
 
 /**
@@ -78,8 +78,6 @@ function handleWelcomeTransition() {
  */
 function handleRsvpSubmit(event) {
     event.preventDefault(); // Detiene el envío normal del formulario
-
-    // **NOTA IMPORTANTE:** Asegúrate de que WHATSAPP_NUMBER esté definido en tu script.
 
     // 1. Capturar los valores de los campos
     const nombre = document.getElementById('name').value.trim();
@@ -97,25 +95,20 @@ function handleRsvpSubmit(event) {
 
     // 3. Formatear el mensaje de forma clara y concisa
     
-    // Título inicial (siempre presente y separado)
+    // Título inicial
     let mensaje = `*CONFIRMACIÓN DE ASISTENCIA*%0A${saltoDeLinea}`;
     
     // Línea 1: Nombre
     mensaje += `*Nombre:* ${nombre}${saltoDeLinea}`;
 
-    // Línea 2: Asistencia
+    // Línea 2 y 3: Asistencia y Total Personas
     if (asistencia === 'si') {
         mensaje += `*Asistencia:* SÍ ✅${saltoDeLinea}`;
-        
-        // Línea 3: Personas (solo si asiste)
         mensaje += `*Total Personas:* ${guests}`;
         
     } else if (asistencia === 'no') {
-        // Si no asiste
-        mensaje += `*Asistencia:* NO ❌${saltoDeLinea}`;
-        // Si no asiste, no se agrega la línea de Total Personas,
-        // pero podemos agregar un mensaje de cortesía si quieres.
-        // mensaje += `Lamentamos no verte allí.`;
+        mensaje += `*Asistencia:* NO ❌`; // No se pone saltoDeLinea al final
+        
     } else {
         alert('Ocurrió un error con el campo de asistencia.');
         return;
@@ -125,7 +118,6 @@ function handleRsvpSubmit(event) {
     const urlMensaje = encodeURIComponent(mensaje);
     
     // 5. Construir la URL de WhatsApp y abrir
-    // **NOTA:** La variable WHATSAPP_NUMBER debe estar definida globalmente o pasada aquí.
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${urlMensaje}`; 
 
     // Abrir WhatsApp en una nueva pestaña/ventana
@@ -139,11 +131,6 @@ function handleRsvpSubmit(event) {
         rsvpForm.reset(); 
     }
 }
-
-
-
-
-
 
 // =========================================================
 // 🚀 INICIO: Asignación de Eventos al Cargar el DOM
@@ -214,4 +201,5 @@ const interval = setInterval(updateCountdown, 1000);
 // Ejecutar una vez al inicio para evitar un retraso de 1 segundo
 
 updateCountdown();
+
 
