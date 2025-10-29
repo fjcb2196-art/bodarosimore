@@ -1,0 +1,540 @@
+/* ========================================================= */
+/* 🎨 1. CONFIGURACIÓN GLOBAL Y VARIABLES (EDITABLE) */
+/* ========================================================= */
+:root {
+    /* Colores del sistema guardados: #D3D5D7, #269DDA, #5FB9E6, #96CEEB, #BED9E7 */
+    --color-principal: #4d5c58; 
+    --color-secundario: rgb(146, 160, 145);
+    --color-texto: #000000;
+    --color-acento: #C4CDC9;
+    --color-fondo-container: rgba(250, 250, 245, 0.95);
+}
+
+/* ========================================================= */
+/* 🧭 2. BASE HTML Y ESTRUCTURA PRINCIPAL */
+/* ========================================================= */
+html {
+    height: 100%;
+}
+body {
+    /* Propiedades de tipografía movidas a la Sección 9 (Editable) */
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    height: 100%;
+    min-height: 100vh;
+    background-image: none;
+    overflow: hidden; 
+    transform: translate3d(0, 0, 0); 
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* WRAPPER PRINCIPAL CON FONDO Y SCROLL */
+#main-wrapper {
+    height: 100%;
+    min-height: 100vh; 
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; 
+    background-image: url('https://i.ibb.co/1tbLYZVn/Untitled-design.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* CONTENEDORES DE CONTENIDO Y SECCIONES */
+.container {
+    max-width: 600px; 
+    margin: 0 auto; 
+    padding: 0 20px;
+    position: relative;
+    z-index: 11;
+}
+
+.content-box {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0;
+    padding: 40px 20px;
+    
+    margin: 0 auto;
+    max-width: 100%; 
+    will-change: transform, opacity; 
+    min-height: 100vh;
+}
+
+
+.section {
+     
+    position: relative;
+    padding: 0;
+    z-index: 11;
+    /* --- AÑADIR ESTA LÍNEA --- */
+    margin-bottom: 50px; /* Puedes ajustar este valor (50px) para más o menos separación */
+
+}
+
+/* Clases de cajas de detalle (Mantenemos estas, pero eliminamos las .content-boxN) */
+.caja-fecha, .caja-ceremonia, .caja-brindis {
+    min-height: 30vh; 
+    padding: 40px 10px;
+}
+.caja-ubicacion {
+    min-height: 34.8vh; 
+    padding: 40px 10px;
+}
+/* ========================================================= */
+/* 🖼️ 3. ESTILOS DE IMÁGENES (EDITABLE) */
+/* ========================================================= */
+/*/ <<<< INICIO EDICIÓN IMÁGENES >>>>
+
+/* 3.1. Imágenes de Ícono (Tamaño base flexible para íconos de detalles) */
+.event-image {
+    width: 100px; 
+    height: 121px; /* Corregido de 121x a 121px */
+    display: block;
+    margin: 0 auto 10px auto; 
+    object-fit: cover; 
+    border-radius: 200px;
+}
+/* 3.2. Imagen de Título (Encabezados SVG/PNG) */
+.tittle-image {
+    width: auto;
+    max-width: 100%; 
+    height: auto;
+    display: block;
+    margin: 15px auto;
+}
+
+/* 3.3. Imágenes del Cuerpo (Foto de la pareja, etc.) */
+.body-image {
+    width: 500px;
+    height: 500px;
+    max-width: 100%; 
+    object-fit: cover; 
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
+/* 3.4. Imagen Principal de la pareja (Sobrescribe a body-image si se usa) */
+.img-principal {
+    width: 350px; 
+    height: 350px; 
+}
+.img-dresscode,
+.img-casamos { 
+    width: 200px; 
+    height: 200px; 
+}
+
+/* 3.6. Imágenes en la Pantalla de Bienvenida (Fondo de puertas) */
+.photo-inner {
+    background-image: url('templates/unnamed.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center; 
+    transition: background-position 0.3s ease;
+    height: 100%; 
+    width: 100%; 
+}
+.photo-left {
+    /* CORRECCIÓN DE SINTAXIS: Se utiliza el espacio y se usa porcentaje para X, Y */
+    background-position: 50% 99%; 
+}
+.photo-right {
+    /* CORRECCIÓN DE SINTAXIS: Se utiliza el espacio y se usa porcentaje para X, Y */
+    background-position: 50% 99%;
+}
+
+/* <<<< FIN EDICIÓN IMÁGENES >>>>
+---
+
+/* ========================================================= */
+/* 🚪 4. PANTALLA DE BIENVENIDA Y PUERTAS */
+/* ========================================================= */
+#pantalla-bienvenida {
+    position: fixed;
+    top : 0;
+    left : 0;
+    width : 100%;
+    height : 100%;
+    background-color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1.5s ease;
+}
+
+.split-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.split-image {
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.8s ease-in-out;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.left-door {
+    left: 0;
+    width: 100vw;
+    clip-path: polygon(0% 100%, 100% 0%, 0% 0%);
+    z-index: 5;
+}
+
+.right-door {
+    right: 0;
+    width: 100vw;
+    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+    z-index: 6;
+}
+
+.left-door.open {
+    transform: translateX(-100%);
+}
+
+.right-door.open {
+    transform: translateX(100%);
+}
+
+#toggleButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 95px;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: opacity 1s ease, transform 0.3s ease;
+}
+
+#toggleButton:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+#toggleButton.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ========================================================= */
+/* 📦 5. DETALLES DEL EVENTO (GRID) Y CAJAS */
+/* ========================================================= */
+.detalles-grid-container {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 30px; 
+    margin: 20px 0;
+    width: 100%;
+}
+
+.caja-fecha, .caja-ceremonia, .caja-brindis, .caja-ubicacion {
+    width: 121px; 
+    height: 260px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 0; 
+    border-radius: 0px;
+    box-sizing: border-box;
+}
+
+/* Estilo para las imágenes dentro de las cajas (mantiene solo el margen) */
+.caja-fecha .event-image,
+.caja-ceremonia .event-image,
+.caja-brindis .event-image,
+.caja-ubicacion .event-image {
+    margin-bottom: 0;
+    border-radius: 0; 
+}
+
+/* ========================================================= */
+/* 📍 6. BOTONES Y FORMULARIO RSVP */
+/* ========================================================= */
+.map-link, .rsvp-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    background-color: var(--color-principal);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: 700;
+}
+.map-link:hover, .rsvp-button:hover {
+    background-color: var(--color-secundario);
+}
+#rsvp-form {
+    text-align: left; padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px solid var(--color-principal);
+}
+#rsvp-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+#rsvp-form button {
+    background-color: var(--color-principal);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: 700;
+    width: 100%;
+}
+#rsvp-form button:hover {
+    background-color: var(--color-secundario);
+}
+#boton-bienvenido {
+    background-color: #556B2F;
+    color: white;
+    font-size: 24px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.invitacion-principal {
+    display: none;
+    padding: 40px;
+    text-align: center;
+}
+
+/* ========================================================= */
+/* ⏳ 7. CONTADOR DE TIEMPO */
+/* ========================================================= */
+#countdown-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* ========================================================= */
+/* 📱 8. MEDIA QUERIES ESTRUCTURALES */
+/* ========================================================= */
+
+/* Ajustes para tabletas y móviles grandes */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 30px;
+        max-width: 95%;
+    }
+}
+
+/* Ajuste específico para la cuadrícula de detalles del evento (móviles) */
+@media (max-width: 550px) {
+    .caja-fecha,
+    .caja-ceremonia,
+    .caja-brindis,
+    .caja-ubicacion {
+        width: calc(50% - 15px); 
+        height: 180px; 
+    }
+}
+
+/* ========================================================= */
+/* ✍️ 9. ESTILOS DE LETRAS / TIPOGRAFÍA (EDITABLE) */
+/* ========================================================= */
+/*/ <<<< INICIO EDICIÓN LETRAS >>>>
+
+/* 9.1. Fuente Base del Body */
+body {
+    font-family: "Baskervville", serif;
+    font-size: 1.1rem;
+}
+
+/* 9.2. Texto dentro de las cajas de detalles (Fecha, Ceremonia, etc.) */
+.caja-ceremonia p, .caja-brindis p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: var(--color-principal);
+    font-weight: bold;
+}
+.caja-ubicacion p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: var(--color-principal);
+    font-weight: bold;
+}
+.caja-fecha p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: var(--color-principal);
+    font-weight: bold;
+}
+
+
+/* 9.3. Estilos del Formulario RSVP */
+#rsvp-form input[type="text"],
+#rsvp-form select,
+#rsvp-form textarea {
+    /* La fuente 'Cormorant Garamond' no está importada en el HTML, pero si la tienes en otro CSS está bien. */
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid var(--color-acento);
+    border-radius: 4px;
+    font-size: 1.1rem;
+}
+
+/* 9.4. Estilos del Contador Regresivo */
+#countdown {
+    /* La fuente 'Cormorant Garamond' no está importada en el HTML */
+    font-size: auto;
+    color: var(--color-principal);
+    font-weight: 100px; /* Esto no es una unidad CSS estándar, debe ser '100' o '1000' */
+    margin-top: 20px;
+    /* font-style: carmorant-garamond; -> Esto es incorrecto */ 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#countdown.finished {
+    font-size: 2em;
+    font-style: italic;
+    color: var(--color-principal);
+}
+.countdown-unit span {
+    font-size: 1.8em;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-principal);
+}
+.countdown-overlay {
+    color: var(--color-principal);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-shadow: none;
+}
+/* <<<< FIN EDICIÓN LETRAS >>>>
+---
+/* ========================================================= */
+/* 📱 10. MEDIA QUERIES DE IMÁGENES (EDITABLE) */
+/* ========================================================= */
+/* <<<< INICIO EDICIÓN RESPONSIVE IMÁGENES >>>>
+
+/* 10.1. Ajustes para tabletas y móviles grandes (768px) */
+@media (max-width: 768px) {
+    .img-vestimenta,
+    .img-rosimore {
+        width: 80px;
+        height: 80px;
+    }
+    .img-calendario {
+        width: 120px;
+        height: 90px;
+    }
+}
+
+/* 10.2. Ajustes para móviles pequeños (480px) */
+@media (max-width: 480px) {
+    .img-vestimenta {
+        width: 70px;
+        height: 70px;
+    }
+    .img-rosimore {
+        width: 60px;
+        height: 60px;
+    }
+    .img-calendario {
+        width: 100px;
+        height: 80px;
+    }
+    .content-box.details .event-image {
+        max-height: 70vh; 
+    }
+}
+/*/ <<<< FIN EDICIÓN RESPONSIVE IMÁGENES >>>>
+
+/* Sección 7. CONTADOR DE TIEMPO en estilos.css */
+#countdown {
+    display: flex;
+    justify-content: center; /* Cambiado a 'center' para mantener la agrupación */
+    align-items: center;
+    padding: 20px 0;
+    max-width: 260px; /* Ajusta este valor si tus círculos son más grandes */
+    margin: 0 auto;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    gap: 10px; /* Espacio entre los círculos */
+}
+
+.countdown-unit {
+    position: relative; /* Importante para posicionar el texto */
+    text-align: center;
+    /* margin: 0 10px;  Eliminamos el margin horizontal para usar 'gap' */
+    
+    width: 120px; /* Ancho deseado de tu círculo */
+    height: 120px; /* Alto deseado de tu círculo */
+    display: flex; /* Para centrar el contenido (número y texto) */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-image: url('templates/marco_circulo.svg'); /* <--- RUTA DE TU IMAGEN CIRCULAR */
+    background-size: contain; /* Ajusta la imagen dentro del contenedor */
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--color-principal); /* Color del texto dentro del círculo */
+}
+
+/* Estilos para el número grande (Días, Horas, etc.) */
+.countdown-unit span {
+    display: block;
+    font-size: 2.5em; /* Tamaño del número */
+    font-weight: 700;
+    color: var(--color-principal); /* Color del número */
+    line-height: 1; /* Elimina espacio extra entre número y texto */
+    margin-bottom: 5px; /* Pequeño espacio entre número y 'Días' */
+}
+
+/* Estilos para el texto de la unidad (Días, Horas, Mins, Segs) */
+.countdown-unit::after {
+    content: attr(data-label); /* Usa el atributo data-label del HTML */
+    display: block;
+    font-size: 0.9em; /* Tamaño del texto "Días", "Horas" */
+    font-weight: normal;
+    color: var(--color-principal); /* Color del texto "Días" */
+}
+
+/* Ocultar el texto original del span para que solo se muestre el número */
+.countdown-unit span + span { /* Esto es para ocultar el "Días", "Horas" etc si se genera doble */
+    display: none;
+}

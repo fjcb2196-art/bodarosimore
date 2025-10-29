@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rosibelys&valmore</title>
+
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="petalos.css">
+    <link rel="stylesheet" href="decoracion.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="pantalla-bienvenida">
+    <div class="split-container">
+        <div class="split-image left-door">
+            <div class="photo-inner photo-left"></div>
+        </div>
+
+        <img id="toggleButton" src="templates/boton.svg" alt="Abrir/Cerrar Puertas">
+
+        <div class="split-image right-door">
+            <div class="photo-inner photo-right"></div>
+        </div>
+    </div>
+</div>
+    <audio id="audio-boda" src="misc/cancion_boda.mp3" loop preload="auto"></audio>
+    <div id="petals-container">
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    </div>
+    <div id="main-wrapper">
+
+        <div class="title-decoration-container" id="decoration-wrapper"></div>
+
+        <div class="container">
+            
+            <div class="content-box section">
+                <img src="templates/rosimore.png" alt="Rosibelys & Valmore" class="body-image img-principal">
+            </div>
+
+            <div class="content-box section">
+                <img src = "templates/noscsamos.svg" alt = " imagen titulo nos casamos " class="tittle-image img-titulo1">
+                <p>
+                    Con enorme alegría y emoción queremos compartir la noticia más especial de nuestras vidas.
+                </p>
+                <p> ¡Nos casamos! </p>
+                <p>
+                    Sería un verdadero honor y el mayor de los regalos contar con tu presencia incondicional en este día tan significativo para nosotros.
+                </p>
+                <p>
+                    Acompáñanos a celebrar el amor que nos une, la unión de nuestras familias y el comienzo de una nueva y emocionante etapa juntos.
+                </p>
+
+                <p style="margin-top: 15px; font-style: italic;">
+                    Tu compañía completará nuestra felicidad y hará que este momento sea inolvidable. ¡Te esperamos con el corazón lleno de ilusión!
+                </p>
+                <img src="templates/rosiymore.svg" alt="pareja" class="body-image img-casamos">
+            </div>
+
+
+            <div class="content-box section">
+                <img src = "templates/nuestrahistoria.svg" alt = " nuestra hisotira " class="tittle-image img-titulo2">
+                <p>
+                    Hemos elegido unir nuestras vidas, entregándonos por completo, pues sabemos 
+                    que la magia de nuestro amor reside en caminar juntos, de la mano, tanto en
+                     la prosperidad como en la adversidad.
+                </p>
+
+                <p>
+                    Deseamos vivir cada instante a tu lado, apoyándonos mutuamente y construyendo un futuro lleno de alegría y amor incondicional. Queremos disfrutar de la luz de cada mañana, la melodía de la música y el suspiro de cada latido de nuestros corazones.
+                </p>
+
+                <ul> 
+                    
+                        Entendemos que esta increíble aventura no termina aquí, sino que, de hecho, ¡apenas comienza!
+                    
+                </ul>
+            </div>
+
+            
+            <div class="content-box section ">
+                <img src = "templates/detallesevento.svg" alt = " detalles del evento " class="tittle-image img-titulo3">
+
+                <div class="detalles-grid-container">
+
+                    <div class="caja-fecha"> <p> Fecha </p> 
+                        <img src="templates/fecha.svg" alt="Detalles del Evento" class="event-image img-fecha">
+                        <p> 20/12 </p>
+                        
+                    </div>
+
+                    <div class="caja-ceremonia"> <p> Ceremonia </p>
+                        <img src="templates/ceremonia.svg" alt="Detalles del Evento" class="event-image img-ceremonia">
+                        <p> 7:30pm</p>
+                    </div> 
+
+                    <div class="caja-brindis"> <p> Brindis </p>
+                        <img src="templates/brindis.svg" alt="Detalles del Evento" class="event-image img-brindis">
+                        <p> 8:00pm </p>
+                    </div>
+                    
+                    <div class="caja-ubicacion"> <p> Ubicación </p> 
+                        <img src="templates/ubicacion.svg" alt="Detalles del Evento" class="event-image img-ubicacion">
+                        <p> Parroquia Nuestra señora de Las Americas </p>
+                    </div>
+                </div>
+                <a href="https://maps.app.goo.gl/FydzmKLbQaGURzpS8" target="_blank" class="map-link" style="margin-bottom: 20px;">Ver Ubicación en Mapa</a>
+            </div>
+
+
+            <div class="content-box section ">
+                <img src = "templates/codigovestimenta.svg" alt = " codigovestimenta " class="tittle-image img-titulo3">
+                <p>
+                    Solicitamos a nuestros distinguidos invitados asistir en traje de gala formal.<br>
+                    <br>
+                    Por favor, tomen nota de la siguiente indicación sobre la paleta de colores para la ocasión:
+                </p>
+                
+                <ul>
+                    <li>
+                        El color blanco y sus tonalidades derivadas están reservados exclusivamente para la novia, con el fin de realzar su protagonismo en este día tan especial.
+                    </li>
+                    <li>
+                        Les pedimos amablemente evitar el color rojo, ya que esta tonalidad no forma parte de la atmósfera que deseamos crear.
+                    </li>
+                    <li>
+                        Tienen total libertad para elegir y lucir atuendos en cualquier otro color que complemente la elegancia de la celebración.
+                    </li>
+                </ul>
+                
+                <img src = "templates/codigovestimenta2.svg" alt = " codigovestimenta2 " class="body-image img-dresscode">
+            </div>
+
+            <div class="content-box section">
+                <img src = "templates/confimarcion.svg" alt = " RSVP confimacion " class="tittle-image img-titulo4">
+                <p>
+                    Tu confirmación es esencial para los preparativos de la boda y para garantizar que la celebración sea perfecta. Por favor, tómate un momento para responder a las preguntas de nuestro formulario.
+                </p>
+                <ul>
+                    <li>
+                        Si tienes alguna duda sobre el número de acompañantes asignados, no dudes en contactarnos antes de completar el formulario.
+                    </li>
+                    <li>
+                        En caso de no recibir tu respuesta antes de la fecha límite, entenderemos que lamentablemente no podrás acompañarnos.
+                    </li>
+                </ul>
+                <form id="rsvp-form">
+                    <label for="name">Nombre Completo:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="attend">¿Asistirás al evento?</label>
+                    <select id="attend" name="attend" required>
+                        <option value="">-- Seleccionar --</option>
+                        <option value="si">¡Sí, asistiré con gusto!</option>
+                        <option value="no">Lamentablemente no podré asistir.</option>
+                    </select>
+
+                    <label for="guests">Número de Acompañantes (incluyéndote):</label>
+                    <select id="guests" name="guests" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+
+                    <button type="submit" id="submit-rsvp" class="rsvp-button">Enviar Confirmación</button>
+                </form>
+            </div>
+
+            <div class="content-box section section">
+                <img src = "templates/contacto.svg" alt = " contacto " class="tittle-image img-titulo5">
+                
+                <p>Para cualquier duda o consulta, pueden contactar</p>
+                <a href="https://wa.me/584245226404" target="_blank" class="whatsapp-fixed-button" aria-label="Chatear por WhatsApp">
+                    <img src="templates/whas.svg" alt="Logo de WhatsApp" class="whatsapp-logo-img">
+                </a>
+
+<div class="content-box section">
+  
+    <img src = "templates/cuentaregresiva.svg" alt = " countdown " class="tittle-image img-titulo6">
+    <div id="countdown-container">
+
+        <div id="countdown"></div>
+        <p id="countdown-overlay">¡El día ha llegado!</p>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="petalos.js"></script>
+    <script src="contador.js"></script>
+</body>
+</html>
