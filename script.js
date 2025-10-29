@@ -92,31 +92,36 @@ function handleRsvpSubmit(event) {
         return;
     }
     
-    // El carácter para un salto de línea en un mensaje de WhatsApp codificado es %0A
+    // Carácter para un salto de línea en un mensaje de WhatsApp codificado
     const saltoDeLinea = '%0A'; 
 
-    // 3. Formatear el mensaje de forma clara
-    let mensaje = `*CONFIRMACIÓN DE ASISTENCIA A LA BODA{saltoDeLinea}`;
+    // 3. Formatear el mensaje de forma clara y concisa
+    
+    // Título inicial (siempre presente y separado)
+    let mensaje = `*CONFIRMACIÓN DE ASISTENCIA*%0A${saltoDeLinea}`;
+    
+    // Línea 1: Nombre
+    mensaje += `*Nombre:* ${nombre}${saltoDeLinea}`;
 
+    // Línea 2: Asistencia
     if (asistencia === 'si') {
-        mensaje += `✅ ¡SÍ ASISTIRÉ! ${saltoDeLinea}`;        
-        mensaje += `Nombre Completo: *${nombre}*${saltoDeLinea}`;
-        mensaje += `Total Personas (Incluyéndome): *${guests}*${saltoDeLinea}`;
+        mensaje += `*Asistencia:* SÍ ✅${saltoDeLinea}`;
         
+        // Línea 3: Personas (solo si asiste)
+        mensaje += `*Total Personas:* ${guests}`;
         
     } else if (asistencia === 'no') {
         // Si no asiste
-        mensaje += `❌ Lamentablemente NO podré asistir.${saltoDeLinea}`;
-       
-        mensaje += `Nombre: *${nombre}*${saltoDeLinea}`;
-        mensaje += `${saltoDeLinea}Gracias por la invitación.`;
+        mensaje += `*Asistencia:* NO ❌${saltoDeLinea}`;
+        // Si no asiste, no se agrega la línea de Total Personas,
+        // pero podemos agregar un mensaje de cortesía si quieres.
+        // mensaje += `Lamentamos no verte allí.`;
     } else {
-        alert('Ocurrió un error con el campo de asistencia. Por favor, revisa tu selección.');
+        alert('Ocurrió un error con el campo de asistencia.');
         return;
     }
     
-    // 4. Codificar el mensaje para URL (solo necesitas codificarlo si usaste saltos literales, 
-    //    pero al usar %0A ya está pre-codificado, aunque encodeURIComponent es buena práctica)
+    // 4. Codificar el mensaje para URL
     const urlMensaje = encodeURIComponent(mensaje);
     
     // 5. Construir la URL de WhatsApp y abrir
@@ -126,15 +131,19 @@ function handleRsvpSubmit(event) {
     // Abrir WhatsApp en una nueva pestaña/ventana
     window.open(whatsappURL, '_blank');
     
-    // 6. Mostrar un mensaje de éxito
+    // 6. Mostrar un mensaje de éxito y limpiar el formulario
     alert(`¡Gracias ${nombre}! Por favor, envía el mensaje que aparecerá en WhatsApp.`);
     
-    // Suponiendo que 'rsvpForm' está accesible (de lo contrario usa document.getElementById('rsvp-form'))
     const rsvpForm = document.getElementById('rsvp-form');
     if (rsvpForm) {
         rsvpForm.reset(); 
     }
 }
+
+
+
+
+
 
 // =========================================================
 // 🚀 INICIO: Asignación de Eventos al Cargar el DOM
@@ -205,3 +214,4 @@ const interval = setInterval(updateCountdown, 1000);
 // Ejecutar una vez al inicio para evitar un retraso de 1 segundo
 
 updateCountdown();
+
