@@ -96,11 +96,10 @@ function handleRsvpSubmit(event) {
     const saltoDeLinea = '%0A'; 
 
     // 3. Formatear el mensaje de forma clara
-    let mensaje = `*CONFIRMACIÓN DE ASISTENCIA A LA BODA*%0A${saltoDeLinea}`; // Título
+    let mensaje = `*CONFIRMACIÓN DE ASISTENCIA A LA BODA{saltoDeLinea}`;
 
     if (asistencia === 'si') {
-        mensaje += `✅ ¡SÍ ASISTIRÉ! ${saltoDeLinea}`;
-        
+        mensaje += `✅ ¡SÍ ASISTIRÉ! ${saltoDeLinea}`;        
         mensaje += `Nombre Completo: *${nombre}*${saltoDeLinea}`;
         mensaje += `Total Personas (Incluyéndome): *${guests}*${saltoDeLinea}`;
         
@@ -204,4 +203,5 @@ function updateCountdown() {
 const interval = setInterval(updateCountdown, 1000);
 
 // Ejecutar una vez al inicio para evitar un retraso de 1 segundo
+
 updateCountdown();
