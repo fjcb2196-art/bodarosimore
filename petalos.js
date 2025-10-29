@@ -2,7 +2,7 @@ var petalPlayers = [];
 
 function animatePetals() {
     var petals = document.querySelectorAll('.petal');
-    const PETAL_IMAGE_URL = '/templates/petalo.svg';
+    const PETAL_IMAGE_URL = 'templates/petalo.svg';
     if (!petals[0].animate) {
         console.warn("El navegador no soporta Web Animations API.");
         return false;
@@ -30,3 +30,4 @@ function animatePetals() {
 }
 
 document.addEventListener('DOMContentLoaded', animatePetals);
+
