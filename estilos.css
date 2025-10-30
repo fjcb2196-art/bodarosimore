@@ -103,7 +103,7 @@ body {
 /* 3.1. Imágenes de Ícono (Tamaño base flexible para íconos de detalles) */
 .event-image {
     width: 100px; 
-    height: 121px; /* Corregido de 121x a 121px */
+    height: 100px; 
     display: block;
     margin: 0 auto 10px auto; 
     object-fit: cover; 
@@ -537,4 +537,5 @@ body {
 /* Ocultar el texto original del span para que solo se muestre el número */
 .countdown-unit span + span { /* Esto es para ocultar el "Días", "Horas" etc si se genera doble */
     display: none;
+
 }
